@@ -1,7 +1,3 @@
 export default function Page() {
-  return (
-    <main>
-
-    </main>
-  )
+  return <main>アカウント登録画面</main>;
 }
