@@ -14,21 +14,20 @@ type NavigationItemType = {
 export default function Navigation() {
   const pathname = usePathname();
   const list = getNavigationList(pathname);
-  const width = Math.floor((1 / list.length) * 100);
 
   return (
-    <nav className="w-full h-[68px] bg-slate-700">
-      <ul className="flex justify-between items-center">
+    <nav className="w-full h-[64px]">
+      <ul className="flex h-full items-center">
         {list.map((item) => (
           <li
             key={item.text}
-            className={`p-2 w-[${width}%] bg-slate-${
-              item.href === pathname && 500
+            className={`w-1/4 h-full bg-slate-${
+              item.href === pathname ? 500 : 700
             }`}
           >
             <Link
               href={item.href}
-              className="flex flex-col justify-center items-center  space-y-1"
+              className="h-full flex flex-col justify-center items-center space-y-1"
             >
               <Image
                 src={item.iconPath}

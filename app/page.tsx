@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-export default function Home() {
+export default function RootPage() {
   return (
-    <main className="p-4 space-y-8">
+    <div className="p-4 space-y-8">
       <section>
         <h2 className="flex items-center space-x-1 font-bold text-slate-700 text-xl mb-2">
           <Image
@@ -14,9 +14,6 @@ export default function Home() {
           <span>今月の支出</span>
         </h2>
         <div className="w-full min-h-64 border shadow-sm rounded-md p-4">
-          {/* <div className="h-full flex items-center justify-center">
-            今月はまだ支出がありません
-          </div> */}
           <ul className="space-y-2">
             <li className="flex items-center justify-between">
               <div>現金</div>
@@ -58,6 +55,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

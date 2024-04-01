@@ -20,10 +20,10 @@ export default function RootLayout({
     <html lang="ja">
       <body className={inter.className}>
         <Header />
-        <main className="pb-20">{children}</main>
-        <div className="fixed bottom-0 left-0 w-full">
+        <main className="pt-2 pb-20">{children}</main>
+        <footer className="fixed bottom-0 left-0 w-full">
           <Navigation />
-        </div>
+        </footer>
       </body>
     </html>
   );
