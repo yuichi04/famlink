@@ -19,7 +19,6 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={inter.className}>
-        <Header />
         <main className="pt-2 pb-20">{children}</main>
         <footer className="fixed bottom-0 left-0 w-full">
           <Navigation />

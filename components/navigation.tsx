@@ -16,18 +16,19 @@ export default function Navigation() {
   const list = getNavigationList(pathname);
 
   return (
-    <nav className="w-full h-[64px]">
-      <ul className="flex h-full items-center">
+    <nav>
+      <ul className="grid grid-cols-4 bg-slate-700">
         {list.map((item) => (
           <li
             key={item.text}
-            className={`w-1/4 h-full bg-slate-${
-              item.href === pathname ? 500 : 700
-            }`}
+            className="py-1"
+            style={{
+              backgroundColor: item.href === pathname ? "#64748b" : "#334155",
+            }}
           >
             <Link
               href={item.href}
-              className="h-full flex flex-col justify-center items-center space-y-1"
+              className="flex flex-col justify-center items-center"
             >
               <Image
                 src={item.iconPath}
