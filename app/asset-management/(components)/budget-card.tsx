@@ -7,8 +7,6 @@ type BudgetCardProps = {
 export default async function BudgetCard({ type }: BudgetCardProps) {
   // TODO: typeに応じてデータの取得先を変える
 
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-
   return (
     <Card className="p-4">
       <div>

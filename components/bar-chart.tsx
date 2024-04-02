@@ -12,14 +12,14 @@ export default function BarChart({ type }: BarChartProps) {
       </CardTitle>
       <CardContent className="flex space-x-2">
         <Indicator />
-        <div className="h-80 w-full flex items-end justify-between">
+        <div className="h-60 w-full flex items-end justify-between">
           <Bar percent={50} type={type} />
           <Bar percent={30} type={type} />
           <Bar percent={70} type={type} />
-          <Bar percent={100} type={type} />
-          <Bar percent={10} type={type} />
+          <Bar percent={90} type={type} />
+          <Bar percent={20} type={type} />
           <Bar percent={80} type={type} />
-          <Bar percent={66} type={type} />
+          <Bar percent={60} type={type} />
         </div>
       </CardContent>
     </Card>
@@ -45,7 +45,7 @@ function Bar({ percent, type }: BarProps) {
 
 function Indicator() {
   return (
-    <div className="h-80 flex flex-col justify-between">
+    <div className="h-60 flex flex-col justify-between">
       <div className="text-xs">100</div>
       <div className="text-xs">50</div>
       <div className="text-xs">0</div>

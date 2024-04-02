@@ -26,17 +26,13 @@ export default function Page() {
             <AssetsCard type="liabilities" />
           </Suspense>
         </TabsContent>
-        <TabsContent value="expenses" className="grid grid-cols-1 gap-y-4">
-          <Suspense fallback={<SkeletonAssetsCard type="assets" />}>
-            <BudgetCard type="expenses" />
-            <BarChart type="expenses" />
-          </Suspense>
+        <TabsContent value="expenses" className="grid grid-cols-1 gap-y-4 mt-0">
+          <BudgetCard type="expenses" />
+          <BarChart type="expenses" />
         </TabsContent>
-        <TabsContent value="income" className="grid grid-cols-1 gap-y-4">
-          <Suspense fallback={<SkeletonAssetsCard type="assets" />}>
-            <BudgetCard type="income" />
-            <BarChart type="income" />
-          </Suspense>
+        <TabsContent value="income" className="grid grid-cols-1 gap-y-4 mt-0">
+          <BudgetCard type="income" />
+          <BarChart type="income" />
         </TabsContent>
       </Tabs>
     </>

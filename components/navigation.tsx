@@ -17,7 +17,7 @@ export default function Navigation() {
 
   return (
     <nav>
-      <ul className="grid grid-cols-4">
+      <ul className="grid grid-cols-5">
         {list.map((item) => (
           <li
             key={item.text}
@@ -36,7 +36,7 @@ export default function Navigation() {
                 width={32}
                 height={32}
               />
-              <span className="text-xs text-white">{item.text}</span>
+              <span className="text-[10px] text-white">{item.text}</span>
             </Link>
           </li>
         ))}
@@ -46,17 +46,27 @@ export default function Navigation() {
 }
 
 function getNavigationList(currentPath: string): NavigationItemType[] {
+  const baseNavigationList = [
+    homeData,
+    householdAccountData,
+    tasksData,
+    eventsData,
+    settingData,
+  ];
+
   switch (currentPath) {
     case "/":
-      return [homeData, householdAccountData, tasksData, eventsData];
+      return baseNavigationList;
     case "/asset-management":
-      return [homeData, householdAccountData, tasksData, eventsData];
+      return baseNavigationList;
     case "/tasks":
-      return [homeData, householdAccountData, tasksData, eventsData];
+      return baseNavigationList;
     case "/events":
-      return [homeData, householdAccountData, tasksData, eventsData];
+      return baseNavigationList;
+    case "/settings":
+      return baseNavigationList;
     default:
-      return [homeData, householdAccountData, tasksData, eventsData];
+      return baseNavigationList;
   }
 }
 
@@ -86,4 +96,11 @@ const eventsData: NavigationItemType = {
   alt: "イベント",
   href: "/events",
   text: "イベント",
+};
+
+const settingData: NavigationItemType = {
+  iconPath: "/icons/settings-light.svg",
+  alt: "設定",
+  href: "/settings",
+  text: "設定",
 };
