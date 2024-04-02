@@ -3,7 +3,7 @@ import { Card, CardContent, CardTitle } from "@/components/ui/card";
 
 export default function RootPage() {
   return (
-    <>
+    <div className="pb-12">
       <section className="p-2">
         <h1 className="text-xl font-semibold mb-2">ホーム画面</h1>
         <Card className="p-4">
@@ -15,6 +15,6 @@ export default function RootPage() {
       <section className="fixed bottom-0 w-full">
         <Navigation />
       </section>
-    </>
+    </div>
   );
 }

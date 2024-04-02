@@ -16,7 +16,7 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <main>
+    <main className="pb-12">
       <section className="px-2 py-4">{children}</section>
       <section className="fixed bottom-0 w-full">
         <Navigation />
