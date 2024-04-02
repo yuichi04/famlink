@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
+import Navigation from "@/components/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -9,14 +10,17 @@ export const metadata: Metadata = {
   description: "家族向けの日常生活サポートアプリ",
 };
 
-export default function RootLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <main>
+      <section className="px-2 py-4">{children}</section>
+      <section className="fixed bottom-0 w-full">
+        <Navigation />
+      </section>
+    </main>
   );
 }

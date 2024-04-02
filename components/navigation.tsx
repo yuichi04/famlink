@@ -17,13 +17,13 @@ export default function Navigation() {
 
   return (
     <nav>
-      <ul className="grid grid-cols-4 bg-slate-700">
+      <ul className="grid grid-cols-4">
         {list.map((item) => (
           <li
             key={item.text}
             className="py-1"
             style={{
-              backgroundColor: item.href === pathname ? "#64748b" : "#334155",
+              backgroundColor: item.href === pathname ? "#334155" : "#0f172a",
             }}
           >
             <Link
@@ -49,7 +49,7 @@ function getNavigationList(currentPath: string): NavigationItemType[] {
   switch (currentPath) {
     case "/":
       return [homeData, householdAccountData, tasksData, eventsData];
-    case "/household-account":
+    case "/asset-management":
       return [homeData, householdAccountData, tasksData, eventsData];
     case "/tasks":
       return [homeData, householdAccountData, tasksData, eventsData];
@@ -69,9 +69,9 @@ const homeData: NavigationItemType = {
 
 const householdAccountData: NavigationItemType = {
   iconPath: "/icons/currency-light.svg",
-  alt: "家計簿",
-  href: "/household-account",
-  text: "家計簿",
+  alt: "資産管理",
+  href: "/asset-management",
+  text: "資産管理",
 };
 
 const tasksData: NavigationItemType = {
