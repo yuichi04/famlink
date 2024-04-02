@@ -33,10 +33,10 @@ export default function Navigation() {
               <Image
                 src={item.iconPath}
                 alt={item.alt}
-                width={32}
-                height={32}
+                width={24}
+                height={24}
               />
-              <span className="text-[10px] text-white">{item.text}</span>
+              <span className="text-[9px] text-white">{item.text}</span>
             </Link>
           </li>
         ))}
