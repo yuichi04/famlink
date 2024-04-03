@@ -1,5 +1,4 @@
 import { DatePickerWithRange } from "@/components/date-picker-with-range";
-import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import AssetsCard from "./(components)/assets-card";
 import { Suspense } from "react";

@@ -26,15 +26,15 @@ export default async function AssetsCard({ type }: AssetsCardProps) {
       <hr />
       <div>
         <h2 className="opacity-75 text-sm">現金</h2>
-        <p className="text-lg">¥45,231,890</p>
+        <p className="text-lg">¥231,890</p>
       </div>
       <div>
         <h2 className="opacity-75 text-sm">横浜銀行</h2>
-        <p className="text-lg">¥45,231,890</p>
+        <p className="text-lg">¥231,890</p>
       </div>
       <div>
         <h2 className="opacity-75 text-sm">セブン銀行</h2>
-        <p className="text-lg">¥45,231,890</p>
+        <p className="text-lg">¥231,890</p>
       </div>
     </Card>
   );
