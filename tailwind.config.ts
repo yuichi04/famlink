@@ -68,7 +68,7 @@ const config = {
           to: { height: "0" },
         },
         "grow-up": {
-          from: { height: "0%" },
+          from: { height: "0" },
           to: { height: "100%" },
         },
       },

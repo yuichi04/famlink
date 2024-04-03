@@ -4,22 +4,23 @@ type BarChartProps = {
   type: "expenses" | "income";
 };
 
-export default function BarChart({ type }: BarChartProps) {
+export default function BarChart({ type }: BarChartProps): JSX.Element {
+  // ここにデータ取得処理を書く
+  // 仮データとしてランダムな数値を生成
+  const data = Array.from({ length: 10 }, () =>
+    Math.floor(Math.random() * 100)
+  );
+
   return (
     <Card>
       <CardTitle className="p-4 opacity-75 text-md font-normal">
         {type === "income" ? "収入推移" : "支出推移"}
       </CardTitle>
-      <CardContent className="flex space-x-2">
-        <Indicator />
-        <div className="h-60 w-full flex items-end justify-between">
-          <Bar percent={50} type={type} />
-          <Bar percent={30} type={type} />
-          <Bar percent={70} type={type} />
-          <Bar percent={90} type={type} />
-          <Bar percent={20} type={type} />
-          <Bar percent={80} type={type} />
-          <Bar percent={60} type={type} />
+      <CardContent className="p-4 flex">
+        <div className="h-60 flex items-end justify-between">
+          {data.map((tick) => (
+            <Bar key={tick} percent={tick} type={type} />
+          ))}
         </div>
       </CardContent>
     </Card>
@@ -31,24 +32,14 @@ type BarProps = {
   type: BarChartProps["type"];
 };
 
-function Bar({ percent, type }: BarProps) {
+function Bar({ percent, type }: BarProps): JSX.Element {
   return (
-    <div style={{ height: percent + "%", transform: "rotate(180deg)" }}>
+    <div className="relative w-8" style={{ height: percent + "%" }}>
       <div
-        className={`w-8 ${
+        className={`absolute bottom-0 w-full ${
           type === "income" ? "bg-blue-500" : "bg-red-500"
         } animate-grow-up`}
       ></div>
-    </div>
-  );
-}
-
-function Indicator() {
-  return (
-    <div className="h-60 flex flex-col justify-between">
-      <div className="text-xs">100</div>
-      <div className="text-xs">50</div>
-      <div className="text-xs">0</div>
     </div>
   );
 }
