@@ -8,7 +8,6 @@ import {
   CarouselPrevious,
 } from "./ui/carousel";
 import { Separator } from "./ui/separator";
-import { MoveRight } from "lucide-react";
 
 type BarChartProps = {
   type: "expenses" | "income";
@@ -18,7 +17,7 @@ type BarChartProps = {
   };
 };
 
-export default function BarChart({ type }: BarChartProps): JSX.Element {
+export default function PieChart({ type }: BarChartProps): JSX.Element {
   // ここにデータ取得処理を書く
   // 仮データとしてランダムな数値を生成
   const tempDays = 30;
@@ -32,9 +31,9 @@ export default function BarChart({ type }: BarChartProps): JSX.Element {
   );
 
   return (
-    <Card className="relative">
+    <Card>
       <CardTitle className="px-4 pt-4 mb-2 opacity-75 text-md font-normal">
-        {type === "income" ? "収入推移" : "支出推移"}
+        {type === "income" ? "収入内訳" : "支出内訳"}
       </CardTitle>
       <CardContent className="px-4">
         <Suspense fallback={<div>Loading...</div>}>
@@ -99,8 +98,8 @@ type CarouselListItemProps = {
 };
 
 function CarouselListItem({ data, date, type }: CarouselListItemProps) {
-  const max = Math.max(...data);
   const total = data.reduce((acc, cur) => acc + cur, 0);
+  let accumulated = 0;
 
   return (
     <CarouselItem>
@@ -110,18 +109,42 @@ function CarouselListItem({ data, date, type }: CarouselListItemProps) {
         </div>
         <h3 className="font-semibold opacity-75">￥{total.toLocaleString()}</h3>
       </header>
-      <Separator className="mt-2 mb-4" />
-      <div className="h-60 flex items-end space-x-4 pt-4">
-        {data.map((item) => (
-          <Bar
-            key={item}
-            percent={Math.round((item / max) * 100)}
-            total={item}
-            type={type}
-            date="4/1"
-          />
-        ))}
-      </div>
+      <Separator className="mt-2 mb-8" />
+      <svg viewBox="0 0 32 32" className="w-60 h-60 mx-auto rounded-full">
+        <circle
+          r="16"
+          cx="16"
+          cy="16"
+          fill="none"
+          stroke="gray"
+          strokeWidth="32"
+        />
+        {data.map((value, index) => {
+          const dashArray = `${(value / total) * 100} ${
+            100 - (value / total) * 100
+          }`;
+          const dashOffset = (-accumulated / total) * 100;
+          accumulated += value;
+          const angle = (accumulated / total) * 2 * Math.PI - Math.PI / 2;
+          const textX = 16 + 16 * Math.cos(angle);
+          const textY = 16 + 16 * Math.sin(angle);
+          return (
+            <g key={index}>
+              <circle
+                r="16"
+                cx="16"
+                cy="16"
+                fill="none"
+                stroke={`hsl(${(index / data.length) * 360}, 100%, 50%)`}
+                strokeWidth="32"
+                strokeDasharray={dashArray}
+                strokeDashoffset={dashOffset}
+                transform="rotate(-90) translate(-32)"
+              />
+            </g>
+          );
+        })}
+      </svg>
     </CarouselItem>
   );
 }

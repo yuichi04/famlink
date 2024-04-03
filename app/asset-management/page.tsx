@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import SkeletonAssetsCard from "./(components)/skeleton-assets-card";
 import BudgetCard from "./(components)/budget-card";
 import BarChart from "@/components/bar-chart";
+import PieChart from "@/components/pie-chart";
 
 export default function Page() {
   return (
@@ -16,6 +17,7 @@ export default function Page() {
           <TabsTrigger value="expenses">支出</TabsTrigger>
           <TabsTrigger value="income">収入</TabsTrigger>
         </TabsList>
+
         <TabsContent value="assets" className="grid grid-cols-1 gap-y-4">
           <Suspense fallback={<SkeletonAssetsCard type="assets" />}>
             <AssetsCard type="assets" />
@@ -24,13 +26,17 @@ export default function Page() {
             <AssetsCard type="liabilities" />
           </Suspense>
         </TabsContent>
+
         <TabsContent value="expenses" className="grid grid-cols-1 gap-y-4 mt-0">
           <BudgetCard type="expenses" />
           <BarChart type="expenses" />
+          <PieChart type="expenses" />
         </TabsContent>
+
         <TabsContent value="income" className="grid grid-cols-1 gap-y-4 mt-0">
           <BudgetCard type="income" />
           <BarChart type="income" />
+          <PieChart type="income" />
         </TabsContent>
       </Tabs>
     </>
