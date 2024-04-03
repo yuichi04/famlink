@@ -9,7 +9,6 @@ import BarChart from "@/components/bar-chart";
 export default function Page() {
   return (
     <>
-      <h1 className="text-xl font-semibold mb-2">資産管理</h1>
       <DatePickerWithRange className="mb-2" />
       <Tabs defaultValue="assets">
         <TabsList className="w-full grid grid-cols-3 bg-slate-200 mb-2">
