@@ -10,9 +10,8 @@ import PieChart from "@/components/pie-chart";
 export default function Page() {
   return (
     <>
-      <DatePickerWithRange className="mb-2" />
       <Tabs defaultValue="assets">
-        <TabsList className="w-full grid grid-cols-3 bg-slate-200 mb-2">
+        <TabsList className="w-full grid grid-cols-3 bg-slate-600 text-white mb-2">
           <TabsTrigger value="assets">資産</TabsTrigger>
           <TabsTrigger value="expenses">支出</TabsTrigger>
           <TabsTrigger value="income">収入</TabsTrigger>
@@ -28,15 +27,43 @@ export default function Page() {
         </TabsContent>
 
         <TabsContent value="expenses" className="grid grid-cols-1 gap-y-4 mt-0">
-          <BudgetCard type="expenses" />
-          <BarChart type="expenses" />
-          <PieChart type="expenses" />
+          <Tabs defaultValue="transaction">
+            <TabsList className="w-full grid grid-cols-3 bg-slate-300 mb-2">
+              <TabsTrigger value="transaction">取引登録</TabsTrigger>
+              <TabsTrigger value="report">レポート</TabsTrigger>
+              <TabsTrigger value="settings">設定</TabsTrigger>
+            </TabsList>
+
+            <TabsContent
+              value="report"
+              className="grid grid-cols-1 gap-y-2 mt-0"
+            >
+              <DatePickerWithRange />
+              <BudgetCard type="expenses" />
+              <BarChart type="expenses" />
+              <PieChart type="expenses" />
+            </TabsContent>
+          </Tabs>
         </TabsContent>
 
         <TabsContent value="income" className="grid grid-cols-1 gap-y-4 mt-0">
-          <BudgetCard type="income" />
-          <BarChart type="income" />
-          <PieChart type="income" />
+          <Tabs defaultValue="transaction">
+            <TabsList className="w-full grid grid-cols-3 bg-slate-300 mb-2">
+              <TabsTrigger value="transaction">取引登録</TabsTrigger>
+              <TabsTrigger value="report">レポート</TabsTrigger>
+              <TabsTrigger value="income">設定</TabsTrigger>
+            </TabsList>
+
+            <TabsContent
+              value="report"
+              className="grid grid-cols-1 gap-y-2 mt-0"
+            >
+              <DatePickerWithRange />
+              <BudgetCard type="income" />
+              <BarChart type="income" />
+              <PieChart type="income" />
+            </TabsContent>
+          </Tabs>
         </TabsContent>
       </Tabs>
     </>

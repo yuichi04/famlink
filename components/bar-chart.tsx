@@ -9,6 +9,7 @@ import {
 } from "./ui/carousel";
 import { Separator } from "./ui/separator";
 import { MoveRight } from "lucide-react";
+import Image from "next/image";
 
 type BarChartProps = {
   type: "expenses" | "income";
@@ -33,9 +34,7 @@ export default function BarChart({ type }: BarChartProps): JSX.Element {
 
   return (
     <Card className="relative">
-      <CardTitle className="px-4 pt-4 mb-2 opacity-75 text-md font-normal">
-        {type === "income" ? "収入推移" : "支出推移"}
-      </CardTitle>
+      <CardTitle className="pt-4 pl-4 opacity-75 text-lg">推移</CardTitle>
       <CardContent className="px-4">
         <Suspense fallback={<div>Loading...</div>}>
           <Carousel>
@@ -104,11 +103,13 @@ function CarouselListItem({ data, date, type }: CarouselListItemProps) {
 
   return (
     <CarouselItem>
-      <header className="flex items-center justify-between">
-        <div className="text-xs bg-slate-200 rounded-sm p-[2px]">
-          {date.start} - {date.end}
-        </div>
-        <h3 className="font-semibold opacity-75">￥{total.toLocaleString()}</h3>
+      <header>
+        <span className="text-xs opacity-75">
+          {date.start.slice(5)} - {date.end.slice(5)}
+        </span>
+        <p className="font-semibold text-lg opacity-75">
+          ￥{total.toLocaleString()}
+        </p>
       </header>
       <Separator className="mt-2 mb-4" />
       <div className="h-60 flex items-end space-x-4 pt-4">

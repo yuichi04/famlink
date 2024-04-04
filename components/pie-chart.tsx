@@ -8,6 +8,7 @@ import {
   CarouselPrevious,
 } from "./ui/carousel";
 import { Separator } from "./ui/separator";
+import Image from "next/image";
 
 type BarChartProps = {
   type: "expenses" | "income";
@@ -32,9 +33,7 @@ export default function PieChart({ type }: BarChartProps): JSX.Element {
 
   return (
     <Card>
-      <CardTitle className="px-4 pt-4 mb-2 opacity-75 text-md font-normal">
-        {type === "income" ? "収入内訳" : "支出内訳"}
-      </CardTitle>
+      <CardTitle className="pt-4 pl-4 opacity-75 text-lg">内訳</CardTitle>
       <CardContent className="px-4">
         <Suspense fallback={<div>Loading...</div>}>
           <Carousel>
@@ -66,48 +65,25 @@ export default function PieChart({ type }: BarChartProps): JSX.Element {
   );
 }
 
-type BarProps = {
-  percent: number;
-  total: number;
-  type: BarChartProps["type"];
-  date: string;
-};
-
-function Bar({ percent, total, type, date }: BarProps): JSX.Element {
-  return (
-    <div className="relative w-8" style={{ height: percent + "%" }}>
-      <div className="absolute bottom-[calc(100%_+_4px)] left-1/2 -translate-x-1/2 text-xs opacity-75">
-        {total.toLocaleString()}
-      </div>
-      <div
-        className={`absolute bottom-0 w-full rounded-t-sm ${
-          type === "income" ? "bg-blue-500" : "bg-red-500"
-        } animate-grow-up`}
-      ></div>
-      <div className="absolute top-[calc(100%_+_4px)] left-1/2 -translate-x-1/2 text-xs opacity-75">
-        {date}
-      </div>
-    </div>
-  );
-}
-
 type CarouselListItemProps = {
   data: number[];
   date: { start: string; end: string };
   type: BarChartProps["type"];
 };
 
-function CarouselListItem({ data, date, type }: CarouselListItemProps) {
+function CarouselListItem({ data, date }: CarouselListItemProps) {
   const total = data.reduce((acc, cur) => acc + cur, 0);
   let accumulated = 0;
 
   return (
     <CarouselItem>
-      <header className="flex items-center justify-between">
-        <div className="text-xs bg-slate-200 rounded-sm p-[2px]">
-          {date.start} - {date.end}
-        </div>
-        <h3 className="font-semibold opacity-75">￥{total.toLocaleString()}</h3>
+      <header>
+        <span className="text-xs opacity-75">
+          {date.start.slice(5)} - {date.end.slice(5)}
+        </span>
+        <p className="font-semibold text-lg opacity-75">
+          ￥{total.toLocaleString()}
+        </p>
       </header>
       <Separator className="mt-2 mb-8" />
       <svg viewBox="0 0 32 32" className="w-60 h-60 mx-auto rounded-full">

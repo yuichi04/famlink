@@ -4,10 +4,8 @@ type AssetsCardProps = {
   type: "assets" | "liabilities";
 };
 
-export default async function AssetsCard({ type }: AssetsCardProps) {
+export default function AssetsCard({ type }: AssetsCardProps) {
   // TODO: typeに応じてデータの取得先を変える
-
-  await new Promise((resolve) => setTimeout(resolve, 3000));
 
   return (
     <Card className="p-4 space-y-4">
