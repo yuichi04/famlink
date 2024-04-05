@@ -24,7 +24,7 @@ export default function SettingTabs() {
 
       <TabsContent value="account" className="space-y-2 mt-0">
         <Card>
-          <CardHeader className="pb-0">
+          <CardHeader className="pb-0 mb-2">
             <CardTitle className="text-lg">新規登録</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -52,7 +52,7 @@ export default function SettingTabs() {
           </CardContent>
         </Card>
         <Card>
-          <CardHeader className="pb-0">
+          <CardHeader className="pb-0 mb-2">
             <CardTitle className="text-lg">一覧</CardTitle>
           </CardHeader>
           <CardContent>テーブル追加予定</CardContent>
@@ -61,7 +61,7 @@ export default function SettingTabs() {
 
       <TabsContent value="category" className="space-y-2 mt-0">
         <Card>
-          <CardHeader className="pb-0">
+          <CardHeader className="pb-0 mb-2">
             <CardTitle className="text-lg">新規登録</CardTitle>
           </CardHeader>
           <CardContent>
@@ -70,7 +70,7 @@ export default function SettingTabs() {
           </CardContent>
         </Card>
         <Card>
-          <CardHeader className="pb-0">
+          <CardHeader className="pb-0 mb-2">
             <CardTitle className="text-lg">一覧</CardTitle>
           </CardHeader>
           <CardContent>テーブル追加予定</CardContent>
@@ -79,7 +79,7 @@ export default function SettingTabs() {
 
       <TabsContent value="tag" className="space-y-2 mt-0">
         <Card>
-          <CardHeader className="pb-0">
+          <CardHeader className="pb-0 mb-2">
             <CardTitle className="text-lg">新規登録</CardTitle>
           </CardHeader>
           <CardContent>
@@ -88,7 +88,7 @@ export default function SettingTabs() {
           </CardContent>
         </Card>
         <Card>
-          <CardHeader className="pb-0">
+          <CardHeader className="pb-0 mb-2">
             <CardTitle className="text-lg">一覧</CardTitle>
           </CardHeader>
           <CardContent>テーブル追加予定</CardContent>
@@ -97,7 +97,7 @@ export default function SettingTabs() {
 
       <TabsContent value="budget" className="mt-0">
         <Card>
-          <CardHeader className="pb-0">
+          <CardHeader className="pb-0 mb-2">
             <CardTitle className="text-lg">現在の予算設定</CardTitle>
           </CardHeader>
           <CardContent className="text-right">
