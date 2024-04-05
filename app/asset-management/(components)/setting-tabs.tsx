@@ -14,7 +14,7 @@ import {
 
 export default function SettingTabs() {
   return (
-    <Tabs defaultValue="category">
+    <Tabs defaultValue="account">
       <TabsList className="z-50 fixed top-12 left-1/2 -translate-x-1/2 rounded-sm w-[calc(100%_-_16px)] grid grid-cols-4 bg-slate-300">
         <TabsTrigger value="account">口座</TabsTrigger>
         <TabsTrigger value="category">カテゴリ</TabsTrigger>

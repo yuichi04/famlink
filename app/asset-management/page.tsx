@@ -8,7 +8,7 @@ export default function Page() {
     <>
       <Tabs defaultValue="account">
         <TabsList className="z-50 fixed top-1 left-1/2 -translate-x-1/2 rounded-sm w-[calc(100%_-_16px)] grid grid-cols-4 bg-slate-700 text-white">
-          <TabsTrigger value="account">口座</TabsTrigger>
+          <TabsTrigger value="account">予算・口座</TabsTrigger>
           <TabsTrigger value="expenses">支出</TabsTrigger>
           <TabsTrigger value="income">収入</TabsTrigger>
           <TabsTrigger value="settings">設定</TabsTrigger>
