@@ -1,14 +1,9 @@
 import Navigation from "@/components/navigation";
-import { Card } from "@/components/ui/card";
 
 export default function RootPage() {
   return (
     <div className="pb-12">
-      <Card className="p-4">
-        <p className="opacity-50 text-sm">予算設定金額 ¥80,000</p>
-        <h2 className="font-semibold text-lg">今月の残り予算額</h2>
-        <p className="font-semibold text-2xl">¥45,231,890</p>
-      </Card>
+      開発中
       <section className="fixed bottom-0 w-full">
         <Navigation />
       </section>

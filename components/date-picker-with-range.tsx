@@ -31,7 +31,7 @@ export function DatePickerWithRange({
             id="date"
             variant={"outline"}
             className={cn(
-              "w-[300px] justify-start text-left font-normal",
+              "w-full justify-start text-left font-normal",
               !date && "text-muted-foreground"
             )}
           >
@@ -51,7 +51,7 @@ export function DatePickerWithRange({
             )}
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-auto p-4" align="start">
+        <PopoverContent className="w-full p-4" align="start">
           <Calendar
             initialFocus
             mode="range"
@@ -60,10 +60,6 @@ export function DatePickerWithRange({
             onSelect={setDate}
             numberOfMonths={2}
           />
-          <div className="grid grid-cols-2 gap-x-2">
-            <Button variant="secondary">閉じる</Button>
-            <Button>更新</Button>
-          </div>
         </PopoverContent>
       </Popover>
     </div>

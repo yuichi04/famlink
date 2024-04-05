@@ -17,13 +17,13 @@ export default function Navigation() {
 
   return (
     <nav>
-      <ul className="grid grid-cols-5">
+      <ul className="grid grid-cols-4 bg-slate-700">
         {list.map((item) => (
           <li
             key={item.text}
             className="py-1"
             style={{
-              backgroundColor: item.href === pathname ? "#334155" : "#0f172a",
+              backgroundColor: item.href === pathname ? "#64748b" : "#334155",
             }}
           >
             <Link
@@ -51,7 +51,7 @@ function getNavigationList(currentPath: string): NavigationItemType[] {
     householdAccountData,
     tasksData,
     eventsData,
-    settingData,
+    // settingData,
   ];
 
   switch (currentPath) {
@@ -98,9 +98,9 @@ const eventsData: NavigationItemType = {
   text: "イベント",
 };
 
-const settingData: NavigationItemType = {
-  iconPath: "/icons/settings-light.svg",
-  alt: "設定",
-  href: "/settings",
-  text: "設定",
-};
+// const settingData: NavigationItemType = {
+//   iconPath: "/icons/settings-light.svg",
+//   alt: "設定",
+//   href: "/settings",
+//   text: "設定",
+// };

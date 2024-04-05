@@ -8,8 +8,6 @@ import {
   CarouselPrevious,
 } from "./ui/carousel";
 import { Separator } from "./ui/separator";
-import { MoveRight } from "lucide-react";
-import Image from "next/image";
 
 type BarChartProps = {
   type: "expenses" | "income";
