@@ -31,7 +31,7 @@ export default function FinanceOverview({
   return (
     <Card className={className}>
       <CardHeader className="pb-0">
-        <CardTitle className="text-lg">{category}</CardTitle>
+        <CardTitle>{category}</CardTitle>
         {description && <CardDescription>{description}</CardDescription>}
       </CardHeader>
       <CardContent className="text-right">

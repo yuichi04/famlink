@@ -1,7 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import TransactionTabs from "./(components)/transaction-tabs";
-import FinanceTabs from "./(components)/finance-tabs";
-import SettingTabs from "./(components)/setting-tabs";
+import TransactionTabs from "./_components/transaction/transaction-tabs";
+import FinanceTabs from "./_components/finance/finance-tabs";
+import SettingTabs from "./_components/settings/setting-tabs";
 
 export default function Page() {
   return (

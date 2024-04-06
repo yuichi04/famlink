@@ -17,6 +17,10 @@ type TransactionFormProps = {
 
 const categoryOptions: SelectboxProps["options"] = [
   {
+    value: "default",
+    label: "カテゴリを選択",
+  },
+  {
     value: "daily-necessities",
     label: "日用品",
   },
@@ -61,21 +65,21 @@ export default function TransactionForm({ type }: TransactionFormProps) {
       <CardContent className="grid grid-cols-2 gap-2 gap-y-4 p-4">
         <h4 className="col-span-2 font-semibold text-sm">必須項目</h4>
         <div>
+          <Label>カテゴリ</Label>
+          <Selectbox defaultValue="default" options={categoryOptions} />
+        </div>
+        <div>
+          <Label>{type === "expenses" ? "支払い方法" : "受け取った方法"}</Label>
+          <Selectbox
+            defaultValue="seven-credit-card"
+            options={accountOptions}
+          />
+        </div>
+        <div>
           <Label>日付</Label>
           <div>
             <DatePicker width={"w-full"} />
           </div>
-        </div>
-        <div>
-          <Label>カテゴリ</Label>
-          <Selectbox
-            defaultValue="daily-necessities"
-            options={categoryOptions}
-          />
-        </div>
-        <div>
-          <Label>{type === "expenses" ? "支払い方法" : "受け取った方法"}</Label>
-          <Selectbox defaultValue="cash" options={accountOptions} />
         </div>
         <div>
           <Label>金額</Label>

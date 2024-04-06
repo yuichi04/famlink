@@ -3,16 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Selectbox, SelectboxProps } from "@/components/ui/select";
-
-const accountOptions: SelectboxProps["options"] = [
-  { value: "cash", label: "現金" },
-  { value: "bank", label: "銀行" },
-  { value: "credit-card", label: "クレジットカード" },
-  { value: "electric-cash", label: "電子決済" },
-  { value: "private", label: "プライベート" },
-  { value: "other", label: "その他" },
-];
+import SettingAccountForm from "./setting-account-form";
 
 export default function SettingTabs() {
   return (
@@ -25,25 +16,10 @@ export default function SettingTabs() {
       </TabsList>
 
       <TabsContent value="account" className="space-y-2 mt-0">
+        <SettingAccountForm />
         <Card>
           <CardHeader className="pb-0 mb-2">
-            <CardTitle className="text-lg">新規登録</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div>
-              <Label>口座種別</Label>
-              <Selectbox defaultValue="cash" options={accountOptions} />
-            </div>
-            <div>
-              <Label>口座名</Label>
-              <Input />
-            </div>
-            <Button className="w-full">登録</Button>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="pb-0 mb-2">
-            <CardTitle className="text-lg">一覧</CardTitle>
+            <CardTitle>一覧</CardTitle>
           </CardHeader>
           <CardContent>テーブル追加予定</CardContent>
         </Card>
@@ -52,7 +28,7 @@ export default function SettingTabs() {
       <TabsContent value="category" className="space-y-2 mt-0">
         <Card>
           <CardHeader className="pb-0 mb-2">
-            <CardTitle className="text-lg">新規登録</CardTitle>
+            <CardTitle>カテゴリ登録</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
@@ -64,7 +40,7 @@ export default function SettingTabs() {
         </Card>
         <Card>
           <CardHeader className="pb-0 mb-2">
-            <CardTitle className="text-lg">一覧</CardTitle>
+            <CardTitle>一覧</CardTitle>
           </CardHeader>
           <CardContent>テーブル追加予定</CardContent>
         </Card>
@@ -73,7 +49,7 @@ export default function SettingTabs() {
       <TabsContent value="tag" className="space-y-2 mt-0">
         <Card>
           <CardHeader className="pb-0 mb-2">
-            <CardTitle className="text-lg">新規登録</CardTitle>
+            <CardTitle>タグ登録</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
@@ -85,7 +61,7 @@ export default function SettingTabs() {
         </Card>
         <Card>
           <CardHeader className="pb-0 mb-2">
-            <CardTitle className="text-lg">一覧</CardTitle>
+            <CardTitle>一覧</CardTitle>
           </CardHeader>
           <CardContent>テーブル追加予定</CardContent>
         </Card>
@@ -94,7 +70,7 @@ export default function SettingTabs() {
       <TabsContent value="budget" className="mt-0">
         <Card>
           <CardHeader className="pb-0 mb-2">
-            <CardTitle className="text-lg">現在の予算設定</CardTitle>
+            <CardTitle>現在の予算設定</CardTitle>
           </CardHeader>
           <CardContent className="text-right">
             <p className="text-xl font-semibold">380,000 円</p>
