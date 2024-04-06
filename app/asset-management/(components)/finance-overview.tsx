@@ -5,6 +5,7 @@ import {
   CardTitle,
   CardContent,
 } from "@/components/ui/card";
+import { formatCurrency } from "@/lib/utils";
 
 type FinanceOverviewProps = {
   amount: number;
@@ -16,6 +17,7 @@ type FinanceOverviewProps = {
     name: string;
     amount: number;
   }[];
+  className?: string;
 };
 
 export default function FinanceOverview({
@@ -24,27 +26,28 @@ export default function FinanceOverview({
   description,
   subDescription,
   list,
+  className,
 }: FinanceOverviewProps) {
   return (
-    <Card>
+    <Card className={className}>
       <CardHeader className="pb-0">
         <CardTitle className="text-lg">{category}</CardTitle>
         {description && <CardDescription>{description}</CardDescription>}
       </CardHeader>
       <CardContent className="text-right">
-        <p className="text-xl font-semibold">{amount.toLocaleString()} 円</p>
+        <p className="text-xl font-semibold">{formatCurrency(amount)}</p>
         <CardDescription>{subDescription}</CardDescription>
       </CardContent>
       {list && (
         <CardContent className="space-y-4">
           {list.map((item, index) => (
             <Card key={item.name + index}>
-              <CardHeader className="pb-0">
+              <CardHeader className="p-4 pb-0">
                 <CardDescription>{item.description}</CardDescription>
                 <CardTitle className="text-md">{item.name}</CardTitle>
               </CardHeader>
-              <CardContent className="text-right text-lg font-semibold">
-                {item.amount.toLocaleString()} 円
+              <CardContent className="p-4 pt-0 text-right text-lg font-semibold">
+                {formatCurrency(item.amount)}
               </CardContent>
             </Card>
           ))}

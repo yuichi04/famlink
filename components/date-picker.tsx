@@ -12,15 +12,16 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Label } from "./ui/label";
 import { ja } from "date-fns/locale";
+import { Selectbox } from "./ui/select";
+
+const options = [
+  { value: "-2", label: "一昨日" },
+  { value: "-1", label: "昨日" },
+  { value: "0", label: "今日" },
+  { value: "1", label: "明日" },
+];
 
 export function DatePicker({ width }: { width: string }) {
   const [date, setDate] = React.useState<Date>();
@@ -53,22 +54,13 @@ export function DatePicker({ width }: { width: string }) {
           <Label className="text-xs text-stone-800 font-semibold">
             簡単選択
           </Label>
-          <Select
-            onValueChange={(value) =>
-              setDate(addDays(new Date(), parseInt(value)))
-            }
+          <Selectbox
             defaultValue="0"
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="-" />
-            </SelectTrigger>
-            <SelectContent position="popper">
-              <SelectItem value="-2">一昨日</SelectItem>
-              <SelectItem value="-1">昨日</SelectItem>
-              <SelectItem value="0">今日</SelectItem>
-              <SelectItem value="1">明日</SelectItem>
-            </SelectContent>
-          </Select>
+            options={options}
+            onChange={(e) =>
+              setDate(addDays(new Date(), parseInt(e.target.value)))
+            }
+          />
         </div>
         <div>
           <Label className="text-xs text-stone-800 font-semibold">

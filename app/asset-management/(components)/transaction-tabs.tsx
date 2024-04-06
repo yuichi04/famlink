@@ -3,6 +3,7 @@ import TransactionForm from "./transaction-form";
 import BarChart from "@/components/bar-chart";
 import PieChart from "@/components/pie-chart";
 import { DatePickerWithRange } from "@/components/date-picker-with-range";
+import DataTable from "@/components/data-table";
 
 type TransactionTabsProps = {
   type: "expenses" | "income";
@@ -28,7 +29,7 @@ export default function TransactionTabs({ type }: TransactionTabsProps) {
       </TabsContent>
 
       <TabsContent value="list" className="mt-0">
-        一覧
+        <DataTable />
       </TabsContent>
     </Tabs>
   );

@@ -1,4 +1,6 @@
+import { formatCurrency } from "@/lib/utils";
 import FinanceOverview from "./finance-overview";
+import { Separator } from "@/components/ui/separator";
 
 export default function FinanceTabs() {
   return (
@@ -7,8 +9,9 @@ export default function FinanceTabs() {
         category="今月の残り予算"
         description="4月1日 ~ 4月30日"
         amount={30000}
-        subDescription="予算設定：380,000 円"
+        subDescription={`予算設定 ${formatCurrency(380000)}`}
       />
+      <Separator className="my-2" />
       <FinanceOverview category="現金" amount={30000} />
       <FinanceOverview
         category="銀行口座"

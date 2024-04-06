@@ -8,19 +8,50 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { DatePicker } from "@/components/date-picker";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
+import { Selectbox, SelectboxProps } from "@/components/ui/select";
 
 type TransactionFormProps = {
   type: "expenses" | "income";
 };
+
+const categoryOptions: SelectboxProps["options"] = [
+  {
+    value: "daily-necessities",
+    label: "日用品",
+  },
+  {
+    value: "food-expenses",
+    label: "食費",
+  },
+  {
+    value: "other",
+    label: "その他",
+  },
+];
+
+const accountOptions: SelectboxProps["options"] = [
+  {
+    value: "cash",
+    label: "現金",
+  },
+  {
+    value: "seven-bank",
+    label: "セブン銀行",
+  },
+  {
+    value: "yokohama-bank",
+    label: "横浜銀行",
+  },
+  {
+    value: "seven-credit-card",
+    label: "セブンカード",
+  },
+  {
+    value: "epos-credit-card",
+    label: "エポスカード",
+  },
+];
 
 export default function TransactionForm({ type }: TransactionFormProps) {
   const [isPrivate, setIsPrivate] = useState(false);
@@ -37,48 +68,14 @@ export default function TransactionForm({ type }: TransactionFormProps) {
         </div>
         <div>
           <Label>カテゴリ</Label>
-          <Select>
-            <SelectTrigger className="w-full">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectItem value="apple">日用品</SelectItem>
-                <SelectItem value="banana">食費</SelectItem>
-                <SelectItem value="blueberry">その他</SelectItem>
-              </SelectGroup>
-            </SelectContent>
-          </Select>
+          <Selectbox
+            defaultValue="daily-necessities"
+            options={categoryOptions}
+          />
         </div>
         <div>
           <Label>{type === "expenses" ? "支払い方法" : "受け取った方法"}</Label>
-          <Select>
-            <SelectTrigger className="w-full">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectItem value="cash">現金</SelectItem>
-                <SelectItem value="seven-bank">セブン銀行</SelectItem>
-                <SelectItem value="yokohama-bank">横浜銀行</SelectItem>
-                {type === "expenses" && (
-                  <>
-                    <SelectItem value="seven-credit-card">
-                      セブンカード
-                    </SelectItem>
-                    <SelectItem value="epos-credit-card">
-                      エポスカード
-                    </SelectItem>
-                    <SelectItem value="rakuten-credit-card">
-                      楽天カード
-                    </SelectItem>
-                    <SelectItem value="yuichi">勇一</SelectItem>
-                    <SelectItem value="miku">美公</SelectItem>
-                  </>
-                )}
-              </SelectGroup>
-            </SelectContent>
-          </Select>
+          <Selectbox defaultValue="cash" options={accountOptions} />
         </div>
         <div>
           <Label>金額</Label>
@@ -106,17 +103,13 @@ export default function TransactionForm({ type }: TransactionFormProps) {
           </div>
           {isPrivate && (
             <div className="col-span-2 mt-1">
-              <Select>
-                <SelectTrigger className="w-full">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectItem value="cash">美公</SelectItem>
-                    <SelectItem value="seven-bank">勇一</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
+              <Selectbox
+                defaultValue="miku"
+                options={[
+                  { value: "miku", label: "美公" },
+                  { value: "yuichi", label: "勇一" },
+                ]}
+              />
             </div>
           )}
         </div>

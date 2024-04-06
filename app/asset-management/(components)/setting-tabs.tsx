@@ -3,14 +3,16 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Selectbox, SelectboxProps } from "@/components/ui/select";
+
+const accountOptions: SelectboxProps["options"] = [
+  { value: "cash", label: "現金" },
+  { value: "bank", label: "銀行" },
+  { value: "credit-card", label: "クレジットカード" },
+  { value: "electric-cash", label: "電子決済" },
+  { value: "private", label: "プライベート" },
+  { value: "other", label: "その他" },
+];
 
 export default function SettingTabs() {
   return (
@@ -30,25 +32,13 @@ export default function SettingTabs() {
           <CardContent className="space-y-4">
             <div>
               <Label>口座種別</Label>
-              <Select>
-                <SelectTrigger className="w-full">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectItem value="cash">現金</SelectItem>
-                    <SelectItem value="bank">銀行</SelectItem>
-                    <SelectItem value="card">クレジットカード</SelectItem>
-                    <SelectItem value="private">プライベート</SelectItem>
-                    <SelectItem value="other">その他</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
+              <Selectbox defaultValue="cash" options={accountOptions} />
             </div>
             <div>
               <Label>口座名</Label>
               <Input />
             </div>
+            <Button className="w-full">登録</Button>
           </CardContent>
         </Card>
         <Card>
@@ -64,9 +54,12 @@ export default function SettingTabs() {
           <CardHeader className="pb-0 mb-2">
             <CardTitle className="text-lg">新規登録</CardTitle>
           </CardHeader>
-          <CardContent>
-            <Label>カテゴリ名</Label>
-            <Input />
+          <CardContent className="space-y-4">
+            <div>
+              <Label>カテゴリ名</Label>
+              <Input />
+            </div>
+            <Button className="w-full mt-2">登録</Button>
           </CardContent>
         </Card>
         <Card>
@@ -82,9 +75,12 @@ export default function SettingTabs() {
           <CardHeader className="pb-0 mb-2">
             <CardTitle className="text-lg">新規登録</CardTitle>
           </CardHeader>
-          <CardContent>
-            <Label>タグ名</Label>
-            <Input />
+          <CardContent className="space-y-4">
+            <div>
+              <Label>タグ名</Label>
+              <Input />
+            </div>
+            <Button className="w-full">登録</Button>
           </CardContent>
         </Card>
         <Card>
