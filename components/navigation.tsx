@@ -79,9 +79,9 @@ const homeData: NavigationItemType = {
 
 const householdAccountData: NavigationItemType = {
   iconPath: "/icons/currency-light.svg",
-  alt: "資産管理",
+  alt: "家計簿",
   href: "/asset-management",
-  text: "資産管理",
+  text: "家計簿",
 };
 
 const tasksData: NavigationItemType = {
