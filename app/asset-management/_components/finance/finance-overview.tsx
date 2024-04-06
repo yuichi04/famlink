@@ -42,11 +42,11 @@ export default function FinanceOverview({
         <CardContent className="space-y-4">
           {list.map((item, index) => (
             <Card key={item.name + index}>
-              <CardHeader className="p-4 pb-0">
+              <CardHeader className="pb-0">
                 <CardDescription>{item.description}</CardDescription>
                 <CardTitle className="text-md">{item.name}</CardTitle>
               </CardHeader>
-              <CardContent className="p-4 pt-0 text-right text-lg font-semibold">
+              <CardContent className="pt-0 text-right text-lg font-semibold">
                 {formatCurrency(item.amount)}
               </CardContent>
             </Card>

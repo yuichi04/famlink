@@ -49,10 +49,10 @@ const accountOptions: SelectboxProps["options"] = [
 export default function RegularForm() {
   return (
     <Card>
-      <CardHeader className="pb-2">
+      <CardHeader>
         <CardTitle>新規登録</CardTitle>
       </CardHeader>
-      <CardContent className="grid grid-cols-2 gap-4">
+      <CardContent className="grid grid-cols-2 gap-x-2 gap-y-4">
         <div>
           <Label>カテゴリ</Label>
           <Selectbox defaultValue="default" options={categoryOptions} />

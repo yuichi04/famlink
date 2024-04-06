@@ -118,7 +118,7 @@ export default function TransactionForm({ type }: TransactionFormProps) {
           )}
         </div>
         <div className="col-span-2">
-          <Label>タグ・品目</Label>
+          <Label>タグ</Label>
           <Input />
         </div>
         <div className="col-span-2">

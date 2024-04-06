@@ -16,7 +16,7 @@ const accountOptions: SelectboxProps["options"] = [
 export default function SettingAccountForm() {
   return (
     <Card>
-      <CardHeader className="pb-0 mb-2">
+      <CardHeader>
         <CardTitle>口座登録</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
