@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Selectbox, SelectboxProps } from "@/components/ui/select";
+import { RegularDialog } from "./regular-dialog";
 
 const categoryOptions: SelectboxProps["options"] = [
   {
@@ -77,9 +78,13 @@ export default function RegularForm() {
         </div>
         <div className="col-span-2">
           <Label>ルール設定</Label>
-          <Button className="w-full" variant="secondary">
-            繰り返しルールを設定する
-          </Button>
+          <RegularDialog
+            trigger={
+              <Button className="w-full" variant="secondary">
+                繰り返しルールを設定する
+              </Button>
+            }
+          />
         </div>
         <div className="col-span-2 pt-4">
           <Button className="w-full">保存</Button>

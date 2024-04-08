@@ -97,10 +97,3 @@ const eventsData: NavigationItemType = {
   href: "/events",
   text: "イベント",
 };
-
-// const settingData: NavigationItemType = {
-//   iconPath: "/icons/settings-light.svg",
-//   alt: "設定",
-//   href: "/settings",
-//   text: "設定",
-// };

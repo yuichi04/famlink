@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/popover";
 import { ja } from "date-fns/locale";
 
-export function DatePicker({ width }: { width: string }) {
+export function DatePicker() {
   const [date, setDate] = React.useState<Date>();
 
   React.useEffect(() => {
@@ -27,9 +27,8 @@ export function DatePicker({ width }: { width: string }) {
         <Button
           variant={"outline"}
           className={cn(
-            "w-[280px] justify-start text-left font-normal",
-            !date && "text-muted-foreground",
-            width
+            "w-full justify-start text-left font-normal",
+            !date && "text-muted-foreground"
           )}
         >
           <CalendarIcon className="mr-2 h-4 w-4" />
@@ -40,7 +39,7 @@ export function DatePicker({ width }: { width: string }) {
           )}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="flex flex-col w-auto space-y-4 translate-x-6">
+      <PopoverContent className="flex flex-col w-auto space-y-4">
         <Calendar mode="single" selected={date} onSelect={setDate} />
       </PopoverContent>
     </Popover>

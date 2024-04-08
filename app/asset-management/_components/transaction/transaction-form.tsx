@@ -78,7 +78,7 @@ export default function TransactionForm({ type }: TransactionFormProps) {
         <div>
           <Label>日付</Label>
           <div>
-            <DatePicker width={"w-full"} />
+            <DatePicker />
           </div>
         </div>
         <div>
