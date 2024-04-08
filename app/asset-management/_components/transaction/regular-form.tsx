@@ -78,13 +78,7 @@ export default function RegularForm() {
         </div>
         <div className="col-span-2">
           <Label>ルール設定</Label>
-          <RegularDialog
-            trigger={
-              <Button className="w-full" variant="secondary">
-                繰り返しルールを設定する
-              </Button>
-            }
-          />
+          <RegularDialog />
         </div>
         <div className="col-span-2 pt-4">
           <Button className="w-full">保存</Button>
