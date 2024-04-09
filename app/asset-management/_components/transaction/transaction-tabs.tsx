@@ -3,9 +3,9 @@ import TransactionForm from "./transaction-form";
 import BarChart from "@/components/bar-chart";
 import PieChart from "@/components/pie-chart";
 import { DatePickerWithRange } from "@/components/date-picker-with-range";
-import DataTable from "@/components/data-table";
 import RegularForm from "./regular-form";
 import RegularTable from "./regular-table";
+import TransactionListTable from "./transaction-list-table";
 
 type TransactionTabsProps = {
   type: "expenses" | "income";
@@ -34,7 +34,7 @@ export default function TransactionTabs({ type }: TransactionTabsProps) {
 
       <TabsContent value="list" className="mt-0">
         <DatePickerWithRange />
-        <DataTable />
+        <TransactionListTable date={{ start: new Date(), end: new Date(1) }} />
       </TabsContent>
 
       <TabsContent value="report" className="grid grid-cols-1 gap-y-2 mt-0">
