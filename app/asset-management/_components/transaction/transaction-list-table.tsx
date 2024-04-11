@@ -37,7 +37,7 @@ export default function TransactionListTable({
     <Card className="rounded-md border">
       {groupedData.map((group) => (
         <div key={formatDate(group.date)}>
-          <div className="bg-gray-300 py-1 px-2">
+          <div className="bg-gray-200 text-sm border border-gray-300 py-1 px-2">
             {format(group.date, "MM月dd日", { locale: ja })}
           </div>
           {group.list.map((item, index) => (

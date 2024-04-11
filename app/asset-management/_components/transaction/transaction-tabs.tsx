@@ -32,12 +32,12 @@ export default function TransactionTabs({ type }: TransactionTabsProps) {
         <RegularTable />
       </TabsContent>
 
-      <TabsContent value="list" className="mt-0">
+      <TabsContent value="list" className="mt-0 space-y-2">
         <DatePickerWithRange />
         <TransactionListTable date={{ start: new Date(), end: new Date(1) }} />
       </TabsContent>
 
-      <TabsContent value="report" className="grid grid-cols-1 gap-y-2 mt-0">
+      <TabsContent value="report" className="mt-0 space-y-2">
         <DatePickerWithRange />
         <BarChart type={type} />
         <PieChart type={type} />
