@@ -4,6 +4,9 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import SettingAccountForm from "./setting-account-form";
+import SettingAccountTable from "./setting-account-table";
+import SettingCategoryForm from "./setting-category-form";
+import SettingCategoryTable from "./setting-category-table";
 
 export default function SettingTabs() {
   return (
@@ -19,9 +22,11 @@ export default function SettingTabs() {
         <SettingAccountForm />
         <Card>
           <CardHeader>
-            <CardTitle>一覧</CardTitle>
+            <CardTitle>登録済み口座</CardTitle>
           </CardHeader>
-          <CardContent>テーブル追加予定</CardContent>
+          <CardContent>
+            <SettingAccountTable />
+          </CardContent>
         </Card>
       </TabsContent>
 
@@ -31,18 +36,16 @@ export default function SettingTabs() {
             <CardTitle>カテゴリ登録</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div>
-              <Label>カテゴリ名</Label>
-              <Input />
-            </div>
-            <Button className="w-full mt-2">登録</Button>
+            <SettingCategoryForm />
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>一覧</CardTitle>
+            <CardTitle>登録済みカテゴリ</CardTitle>
           </CardHeader>
-          <CardContent>テーブル追加予定</CardContent>
+          <CardContent>
+            <SettingCategoryTable />
+          </CardContent>
         </Card>
       </TabsContent>
 
