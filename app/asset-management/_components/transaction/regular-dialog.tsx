@@ -29,9 +29,6 @@ export function RegularDialog() {
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle className="text-lg">繰り返しルール</DialogTitle>
-          {/* <DialogDescription>
-            Make changes to your profile here. Click save when you&apos;re done.
-          </DialogDescription> */}
         </DialogHeader>
         <Card className="p-2 space-y-2">
           <div className="flex items-center justify-between">

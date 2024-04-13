@@ -3,12 +3,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import SettingAccountForm from "./setting-account-form";
-import SettingAccountTable from "./setting-account-table";
-import SettingCategoryForm from "./setting-category-form";
-import SettingCategoryTable from "./setting-category-table";
-import SettingTagForm from "./setting-tag-form";
-import SettingTagTable from "./setting-tag-table";
+import SettingAccountForm from "./account/setting-account-form";
+import SettingAccountTable from "./account/setting-account-table";
+import SettingCategoryForm from "./category/setting-category-form";
+import SettingCategoryTable from "./category/setting-category-table";
+import SettingTagForm from "./tag/setting-tag-form";
+import SettingTagTable from "./tag/setting-tag-table";
 
 export default function SettingTabs() {
   return (
