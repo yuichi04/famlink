@@ -7,6 +7,8 @@ import SettingAccountForm from "./setting-account-form";
 import SettingAccountTable from "./setting-account-table";
 import SettingCategoryForm from "./setting-category-form";
 import SettingCategoryTable from "./setting-category-table";
+import SettingTagForm from "./setting-tag-form";
+import SettingTagTable from "./setting-tag-table";
 
 export default function SettingTabs() {
   return (
@@ -19,7 +21,14 @@ export default function SettingTabs() {
       </TabsList>
 
       <TabsContent value="account" className="space-y-2 mt-0">
-        <SettingAccountForm />
+        <Card>
+          <CardHeader>
+            <CardTitle>口座登録</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <SettingAccountForm />
+          </CardContent>
+        </Card>
         <Card>
           <CardHeader>
             <CardTitle>登録済み口座</CardTitle>
@@ -55,18 +64,16 @@ export default function SettingTabs() {
             <CardTitle>タグ登録</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div>
-              <Label>タグ名</Label>
-              <Input />
-            </div>
-            <Button className="w-full">登録</Button>
+            <SettingTagForm />
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>一覧</CardTitle>
+            <CardTitle>登録済みタグ</CardTitle>
           </CardHeader>
-          <CardContent>テーブル追加予定</CardContent>
+          <CardContent>
+            <SettingTagTable />
+          </CardContent>
         </Card>
       </TabsContent>
 

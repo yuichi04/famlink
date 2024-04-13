@@ -1,4 +1,3 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -15,28 +14,23 @@ const accountOptions: SelectboxProps["options"] = [
 
 export default function SettingAccountForm() {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>口座登録</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <div>
-          <Label>口座種別</Label>
-          <Selectbox defaultValue="cash" options={accountOptions} />
+    <form action="" className="space-y-4">
+      <div>
+        <Label>口座種別</Label>
+        <Selectbox defaultValue="cash" options={accountOptions} />
+      </div>
+      <div>
+        <Label>口座名</Label>
+        <Input />
+      </div>
+      <div>
+        <Label>現在の残高</Label>
+        <div className="relative">
+          <Input type="number" className="pr-8" />
+          <span className="absolute right-2 bottom-2 text-sm">円</span>
         </div>
-        <div>
-          <Label>口座名</Label>
-          <Input />
-        </div>
-        <div>
-          <Label>現在の残高</Label>
-          <div className="relative">
-            <Input type="number" className="pr-8" />
-            <span className="absolute right-2 bottom-2 text-sm">円</span>
-          </div>
-        </div>
-        <Button className="w-full">登録</Button>
-      </CardContent>
-    </Card>
+      </div>
+      <Button className="w-full">登録</Button>
+    </form>
   );
 }
